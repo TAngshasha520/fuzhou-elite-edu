@@ -1,0 +1,602 @@
+/* ========== 基础重置 ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Microsoft YaHei", "苹方", "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* ========== 导航栏（主色 #7B3125） ========== */
+header {
+  background: #7B3125;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* 导航栏加高、变宽 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 5%;
+  /* 增大上下内边距，导航栏更高 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ====== 纯文字 Logo 样式 ====== */
+.logo {
+  display: flex;
+  flex-direction: column;
+  /* 中文 + 英文 垂直排列 */
+  align-items: flex-start;
+  gap: 3px;
+  /* 两行文字间距 */
+  transform: translateY(-4px);
+  /* 整体上移一点 */
+}
+
+/* 中文 Logo */
+.logo-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1.1;
+}
+
+/* 英文 Logo（大写） */
+.logo-en {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  /* 强制大写 */
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  border-bottom-color: #FFD966;
+  color: #FFD966;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1.2rem 5%;
+  }
+
+  .logo-text {
+    font-size: 19px;
+  }
+
+  .logo-en {
+    font-size: 10px;
+  }
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0.2rem;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  border-bottom-color: #FFD966;
+  color: #FFD966;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ========== 所有板块全屏通栏 ========== */
+.page-section {
+  display: none;
+  width: 100%;
+  padding: 2rem 5%;
+  animation: fadeIn 0.4s ease;
+}
+
+.page-section.active {
+  display: block;
+  
+}
+
+#home,
+#about,
+#teachers,
+#contact {
+  background: #FDF8F5;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: #7B3125;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #C0856A;
+  display: inline-block;
+}
+
+/* ========== 首页 Hero 全屏占满 ========== */
+.hero {
+  background: linear-gradient(135deg, #7B3125, #A0522D);
+  color: white;
+  padding: 6rem 5% 5rem;
+  text-align: center;
+  margin: -1rem -5% 3rem -5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 50vh;
+  border-radius: 0 0 12px 12px;
+}
+
+.hero h2 {
+  border-bottom: none;
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  opacity: 0.95;
+}
+
+/* ========== 首页特色卡片 ========== */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.feature-card {
+  padding: 2.5rem 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  border-top: 4px solid #7B3125;
+  border-bottom: 4px solid #7B3125;
+  transition: transform 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.feature-card h3 {
+  color: #7B3125;
+  margin-bottom: 0.6rem;
+}
+
+/* ========== 学校简介 ========== */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-text {
+  max-width: 100%;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-text p {
+  margin-bottom: 1.2rem;
+}
+
+/* 图片画廊优化 */
+.about-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  text-align: center;
+}
+
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-item span {
+  font-size: 0.9rem;
+  color: #7B3125;
+  font-weight: bold;
+}
+
+/* ========== 教师介绍 - 左右布局 ========== */
+.teacher-group {
+  margin-bottom: 3rem;
+}
+
+.group-title {
+  font-size: 1.8rem;
+  color: #7B3125;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 5px solid #7B3125;
+}
+
+/* 横向卡片容器 */
+.teacher-cards-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* 老师卡片之间距离加大 */
+}
+
+.teacher-card-horizontal {
+  display: flex;
+  background: white;
+  padding: 2rem;
+  /* 卡片内边距加大，更宽松 */
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  align-items: center;
+  gap: 2.5rem;
+  /* 照片和文字之间距离更舒服 */
+  transition: transform 0.2s;
+}
+
+.teacher-card-horizontal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(123, 49, 37, 0.15);
+}
+
+/* ========== 教师介绍 - 左右布局 ========== */
+.teacher-group {
+  margin-bottom: 3rem;
+}
+
+.group-title {
+  font-size: 1.8rem;
+  color: #7B3125;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 5px solid #7B3125;
+}
+
+/* 横向卡片容器 */
+.teacher-cards-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.teacher-card-horizontal {
+  display: flex;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  align-items: center;
+  gap: 2.5rem;
+  transition: transform 0.2s;
+}
+
+.teacher-card-horizontal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(123, 49, 37, 0.15);
+}
+
+/* ========== 教师介绍 - 左右布局 ========== */
+.teacher-group {
+  margin-bottom: 3rem;
+}
+
+.group-title {
+  font-size: 1.8rem;
+  color: #7B3125;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 5px solid #7B3125;
+}
+
+/* 横向卡片容器 */
+.teacher-cards-horizontal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.teacher-card-horizontal {
+  display: flex;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  align-items: center;
+  gap: 2.5rem;
+  transition: transform 0.2s;
+}
+
+.teacher-card-horizontal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(123, 49, 37, 0.15);
+}
+
+/* ========== 左边图片容器：固定大小，不会被撑大 ========== */
+.teacher-img-area {
+  width: 160px;
+  /* 固定左边区域宽度 */
+  height: 200px;
+  /* 固定左边区域高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== 图片：等比缩小 + 完整显示 + 不变形 ========== */
+.teacher-img-area img {
+  max-width: 100%;
+  /* 不超出容器宽度 */
+  max-height: 100%;
+  /* 不超出容器高度 */
+  object-fit: contain;
+  /* 等比缩小，完整显示图片 */
+  border-radius: 0;
+  /* 直角长方形 */
+  border: none;
+  /* 无边框 */
+}
+
+/* 右文 */
+.teacher-info-area {
+  flex: 1;
+}
+
+.teacher-info-area h4 {
+  font-size: 1.3rem;
+  color: #7B3125;
+  margin-bottom: 0.5rem;
+}
+
+.role-badge {
+  background: #7B3125;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  margin-left: 0.8rem;
+  font-weight: normal;
+}
+
+.teacher-info-area p {
+  color: #444;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.teacher-note {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #666;
+  text-align: center;
+}
+/* ========== 联系我们 ========== */
+#contact {
+  background: #FDF8F5 !important;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1 1 400px;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.contact-info h3,
+.contact-form h3 {
+  color: #7B3125;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.8rem;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin: 0.5rem 0 0.2rem;
+  font-weight: 600;
+}
+
+.contact-form input {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-form button {
+  background: #7B3125;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 0.5rem;
+}
+
+.contact-form button:hover {
+  background: #5A2016;
+}
+
+.form-msg {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: green;
+}
+
+/* ========== 页脚 ========== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #7B3125;
+  color: white;
+  margin-top: -15px;
+}
+
+/* ========== 移动端适配 ========== */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #7B3125;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 教师卡片在手机端改为上下布局 */
+  .teacher-card-horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .teacher-img-area {
+    flex: 0 0 auto;
+  }
+
+  .role-badge {
+    display: inline-block;
+    margin-top: 0.3rem;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .about-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 4rem 5% 3rem;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+}
